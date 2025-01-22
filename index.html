@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Website</title>
+    <style>
+        /* Theme Variables */
+        :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #3498db;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --nav-text: #333333;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent-color: #61dafb;
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            --nav-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--nav-text);
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--accent-color);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-primary);
+            padding-top: 80px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        /* Works Section */
+        #works {
+            background: var(--bg-secondary);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        .work-item {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .work-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-primary);
+        }
+
+        /* CV Section */
+        #cv {
+            background: var(--bg-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .about-content, .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span class="toggle-icon">🌙</span>
+        <span class="toggle-text">Dark Mode</span>
+    </button>
+
+    <nav>
+        <ul>
+            <li><a onclick="scrollToSection('about')">About</a></li>
+            <li><a onclick="scrollToSection('works')">Works</a></li>
+            <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            <li><a onclick="scrollToSection('cv')">CV</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h1>Hello, I'm [Your Name]</h1>
+                <p>A [Your Profession] passionate about creating amazing things.</p>
+            </div>
+            <div class="about-image">
+                <img src="/api/placeholder/500/500" alt="Profile">
+            </div>
+        </div>
+    </section>
+
+    <section id="works">
+        <div class="works-grid">
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Description of project 1</p>
+            </div>
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Description of project 2</p>
+            </div>
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>Description of project 3</p>
+            </div>
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 4">
+                <h3>Project 4</h3>
+                <p>Description of project 4</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Contact Me</h2>
+            <p>Email: your.email@example.com</p>
+            <p>LinkedIn: linkedin.com/in/yourprofile</p>
+            <p>GitHub: github.com/yourusername</p>
+        </div>
+    </section>
+
+    <section id="cv">
+        <div class="cv-content">
+            <h2>Curriculum Vitae</h2>
+            <div class="education">
+                <h3>Education</h3>
+                <p>[Degree] - [University] ([Year])</p>
+            </div>
+            <div class="experience">
+                <h3>Experience</h3>
+                <p>[Job Title] - [Company] ([Years])</p>
+            </div>
+            <div class="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Skill 1</li>
+                    <li>Skill 2</li>
+                    <li>Skill 3</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const toggleIcon = document.querySelector('.toggle-icon');
+            const toggleText = document.querySelector('.toggle-text');
+            
+            if (html.getAttribute('data-theme') === 'light') {
+                html.setAttribute('data-theme', 'dark');
+                toggleIcon.textContent = '☀️';
+                toggleText.textContent = 'Light Mode';
+            } else {
+                html.setAttribute('data-theme', 'light');
+                toggleIcon.textContent = '🌙';
+                toggleText.textContent = 'Dark Mode';
+            }
+        }
+
+        // Handle wheel events for smooth section scrolling
+        let isScrolling = false;
+        window.addEventListener('wheel', function(e) {
+            if (!isScrolling) {
+                isScrolling = true;
+                
+                const sections = document.querySelectorAll('section');
+                const currentSection = Array.from(sections).findIndex(section => {
+                    const rect = section.getBoundingClientRect();
+                    return rect.top >= -100 && rect.top <= 100;
+                });
+                
+                if (currentSection !== -1) {
+                    if (e.deltaY > 0 && currentSection < sections.length - 1) {
+                        sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
+                    } else if (e.deltaY < 0 && currentSection > 0) {
+                        sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 1000);
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
