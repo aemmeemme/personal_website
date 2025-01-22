@@ -1,133 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marco's Personal Website</title>
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Basic styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      color: #333;
-    }
-    h1, h2, h3 {
-      text-align: center;
-    }
-    #theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      z-index: 1000;
-    }
-    body.dark-theme {
-      background-color: #121212;
-      color: #ffffff;
-    }
-    .pagination {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-    .pagination a {
-      margin: 0 5px;
-      padding: 10px 15px;
-      text-decoration: none;
-      background-color: #007bff;
-      color: white;
-      border-radius: 5px;
-    }
-    .pagination a.active {
-      background-color: #0056b3;
-      pointer-events: none;
-    }
-    .pagination a:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Website</title>
+    <style>
+        /* Theme Variables */
+        :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #3498db;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --nav-text: #333333;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent-color: #61dafb;
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            --nav-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--nav-text);
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--accent-color);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-primary);
+            padding-top: 80px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        /* Works Section */
+        #works {
+            background: var(--bg-secondary);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        .work-item {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .work-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-primary);
+        }
+
+        /* CV Section */
+        #cv {
+            background: var(--bg-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .about-content, .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <button id="theme-toggle" aria-label="Toggle Theme">
-    <i id="theme-icon" class="fas fa-moon"></i>
-  </button>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span class="toggle-icon">🌙</span>
+        <span class="toggle-text">Dark Mode</span>
+    </button>
 
-  <header>
-    <h1>Hello, I'm MARCO</h1>
-    <h2>Welcome to my personal website</h2>
-  </header>
+    <nav>
+        <ul>
+            <li><a onclick="scrollToSection('about')">About</a></li>
+            <li><a onclick="scrollToSection('works')">Works</a></li>
+            <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            <li><a onclick="scrollToSection('cv')">CV</a></li>
+        </ul>
+    </nav>
 
-  <main>
-    <section id="page-content">
-      <h2>Page 1: About Me</h2>
-      <p>My name is MARCO, and I'm passionate about [Your Profession].</p>
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h1>Hello, I'm [Your Name]</h1>
+                <p>A [Your Profession] passionate about creating amazing things.</p>
+            </div>
+            <div class="about-image">
+                <img src="/api/placeholder/500/500" alt="Profile">
+            </div>
+        </div>
     </section>
 
-    <div class="pagination">
-      <a href="#" class="active" data-page="1">1</a>
-      <a href="#" data-page="2">2</a>
-      <a href="#" data-page="3">3</a>
-    </div>
-  </main>
+    <section id="works">
+        <div class="works-grid">
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Description of project 1</p>
+            </div>
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Description of project 2</p>
+            </div>
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>Description of project 3</p>
+            </div>
+            <div class="work-item">
+                <img src="/api/placeholder/400/300" alt="Project 4">
+                <h3>Project 4</h3>
+                <p>Description of project 4</p>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>© 2025 MARCO. All rights reserved.</p>
-  </footer>
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Contact Me</h2>
+            <p>Email: your.email@example.com</p>
+            <p>LinkedIn: linkedin.com/in/yourprofile</p>
+            <p>GitHub: github.com/yourusername</p>
+        </div>
+    </section>
 
-  <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const pageContent = document.getElementById('page-content');
-    const paginationLinks = document.querySelectorAll('.pagination a');
+    <section id="cv">
+        <div class="cv-content">
+            <h2>Curriculum Vitae</h2>
+            <div class="education">
+                <h3>Education</h3>
+                <p>[Degree] - [University] ([Year])</p>
+            </div>
+            <div class="experience">
+                <h3>Experience</h3>
+                <p>[Job Title] - [Company] ([Years])</p>
+            </div>
+            <div class="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Skill 1</li>
+                    <li>Skill 2</li>
+                    <li>Skill 3</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    // Dark Theme Functionality
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-      document.body.classList.add('dark-theme');
-      themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else if (currentTheme === 'light') {
-      document.body.classList.remove('dark-theme');
-      themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
 
-    themeToggle.addEventListener('click', () => {
-      if (document.body.classList.contains('dark-theme')) {
-        document.body.classList.remove('dark-theme');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.body.classList.add('dark-theme');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
+        function toggleTheme() {
+            const html = document.documentElement;
+            const toggleIcon = document.querySelector('.toggle-icon');
+            const toggleText = document.querySelector('.toggle-text');
+            
+            if (html.getAttribute('data-theme') === 'light') {
+                html.setAttribute('data-theme', 'dark');
+                toggleIcon.textContent = '☀️';
+                toggleText.textContent = 'Light Mode';
+            } else {
+                html.setAttribute('data-theme', 'light');
+                toggleIcon.textContent = '🌙';
+                toggleText.textContent = 'Dark Mode';
+            }
+        }
 
-    // Pagination Functionality
-    const pages = {
-      1: '<h2>Page 1: About Me</h2><p>My name is MARCO, and I\'m passionate about [Your Profession].</p>',
-      2: '<h2>Page 2: My Work</h2><p>Here are some of my projects:</p><ul><li>Project 1 - [Description]</li><li>Project 2 - [Description]</li><li>Project 3 - [Description]</li></ul>',
-      3: '<h2>Page 3: Contact</h2><p>Email me at: [Your Email]</p>',
-    };
-
-    paginationLinks.forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        const page = event.target.getAttribute('data-page');
-        pageContent.innerHTML = pages[page];
-
-        paginationLinks.forEach(link => link.classList.remove('active'));
-        event.target.classList.add('active');
-      });
-    });
-  </script>
+        // Handle wheel events for smooth section scrolling
+        let isScrolling = false;
+        window.addEventListener('wheel', function(e) {
+            if (!isScrolling) {
+                isScrolling = true;
+                
+                const sections = document.querySelectorAll('section');
+                const currentSection = Array.from(sections).findIndex(section => {
+                    const rect = section.getBoundingClientRect();
+                    return rect.top >= -100 && rect.top <= 100;
+                });
+                
+                if (currentSection !== -1) {
+                    if (e.deltaY > 0 && currentSection < sections.length - 1) {
+                        sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
+                    } else if (e.deltaY < 0 && currentSection > 0) {
+                        sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 1000);
+            }
+        }, { passive: true });
+    </script>
 </body>
 </html>
