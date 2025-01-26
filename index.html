@@ -9,6 +9,16 @@
 </head>
 <body>
 
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <!-- Dark/Light Mode Toggle -->
     <div class="dark-light-toggle">
         <button id="theme-toggle" aria-label="Toggle dark/light mode">
@@ -17,26 +27,41 @@
         </button>
     </div>
 
-    <!-- Main Content: Full Screen Sections -->
+    <!-- Main Content with Full-Screen Sections -->
     <div class="main-content">
-        <!-- Personal Preview Section -->
-        <section id="personal-preview" class="full-screen-section">
-            <h1>Your Name</h1>
-            <p>Born in [Birthplace], lived in [Cities with Years]</p>
+        <!-- Home Section -->
+        <section id="home" class="full-screen-section">
+            <div class="home-content">
+                <h1>Your Name</h1>
+                <p>IT Consultant & Automation Expert</p>
+                <a href="#about" class="btn">Learn More</a>
+            </div>
         </section>
 
-        <!-- Activities / CV Section -->
-        <section id="activities" class="full-screen-section">
-            <h2>About My Career</h2>
-            <p>Short summary of your career, skills, and current activities.</p>
+        <!-- About Section -->
+        <section id="about" class="full-screen-section">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I have over 10 years of experience in IT consulting, specializing in QA and Automation testing.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="full-screen-section">
+            <div class="portfolio-content">
+                <h2>My Work</h2>
+                <p>Projects and clients I've worked with in the past, showcasing my skills in QA and Automation.</p>
+            </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="full-screen-section">
-            <h2>Contact Me</h2>
-            <p>Email: youremail@example.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">yourprofile</a></p>
-            <p>GitHub: <a href="https://github.com/yourgithub">yourgithub</a></p>
+            <div class="contact-content">
+                <h2>Contact Me</h2>
+                <p>Email: youremail@example.com</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">yourprofile</a></p>
+                <p>GitHub: <a href="https://github.com/yourgithub">yourgithub</a></p>
+            </div>
         </section>
     </div>
 
