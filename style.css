@@ -149,6 +149,7 @@ body{
 }
 .r-mid{
   background-color: var(--r-mid-bg);
+  padding: 1em;
 }
 .r-bottom{
   background-color: var(--r-bottom-bg);
@@ -207,16 +208,22 @@ nav ul.navbar {
   
   #propic_text {
     text-align: center;
-    padding-top: 8em;
+    margin-top: 11em;
   }
   
+  #propic_img{
+    width: 150px;
+    position: fixed;
+    margin: 1em;
+    border-radius: 1em;
+    margin-left: 5.5em;
+  }
 /* Ensure #main-content has 3D settings */
 #main-content {
     /* This prevents showing the backface during flip */
     backface-visibility: hidden;
     transform-style: preserve-3d;
     letter-spacing: 2px;
-    
   }
   
   /* Flip-out animation (rotates from 0° to 90° along Y-axis) */
@@ -327,11 +334,13 @@ nav ul.navbar {
 }
 
 .fa-brands {
-  margin:  1em;
-  margin-top: 4em;
+  margin-left: 1.2em;
+  margin-top: 2em;
   padding: 10px;
   border-radius: 50%;
   text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
 }
 
 /* Add a hover effect if you want */
@@ -351,9 +360,7 @@ nav ul.navbar {
 .fa-linkedin-in {
   background: #0A66C2;
   color: white;
-  
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
+  }
 /* Twitter */
 .fa-google {
   background: #DB4437;
