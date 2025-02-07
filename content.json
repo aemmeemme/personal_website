@@ -1,0 +1,23 @@
+{
+    "about": {
+      "title": "About Me",
+      "content": "<p>Born in 1992 in Lecce, my curiosity and drive for new experiences have shaped both my personal and professional journey. In 2012, I took my first career steps in Rome, setting the foundation for an ever-evolving path. By 2016, my journey led me to Bergamo, and over the years, I had the privilege of working across some of Italy’s most dynamic cities—Torino, Bologna, and Siena—before finally making Milano my home in 2019. My career has spanned diverse industries, each shaping my skill set in unique ways. Between 2013 and 2016, I honed my technical expertise in the automotive and defense sectors, mastering problem-solving in high-stakes environments. A shift to the banking and payments industry in 2016 opened doors to innovation, where I contributed until 2023, navigating the complexities of financial systems. Today, I embrace a fresh challenge in supply chain management, focusing on innovation, efficiency, and optimization. Beyond work, I am deeply passionate about movies, art, motorsport, and design—influences that shape my perspective and problem-solving approach. Whether it’s crafting solutions with elegance, optimizing systems with efficiency, or adding a touch of creativity to challenges, I believe that the best ideas come from the perfect balance of logic and inspiration.</p>"
+    },
+    "projects": {
+      "title": "My Projects",
+      "content": "<p>Here you can find some of my projects:</p><br><ul><li><b>MARETTA</b>: is a personal design brand used to publish and sell my personal creations.</li><br><li><b>Temperature Bot</b>: is a simple Telegram bot that returns the daily temperature of a specific place.</li></ul>"
+    },
+    "cv": {
+      "title": "Curriculum Vitae",
+      "content": "<p>In this section you'll find the CV with all my professional experience, education, and skills. I have worked in several industries and have a strong background in Quality Assurance Processes.<br><a href='./CV_20250112_165512_0000.pdf' download='newfilename'>Download the pdf here!</a></p>"
+    },
+    "contacts": {
+      "title": "My contacts",
+      "content": "<p>You can find me around the web! Below you can find the links to my main social media!<br><br><a href='https://www.linkedin.com/in/yourprofile' target='_blank'><i class='fab fa-linkedin'>AAAAAA</i></a> <a href= 'mailto:amarcomiglietta@gmail.com'>write me and email </a> </p>"
+    },
+    "skills": {
+      "title": "Main Skills",
+      "content": "<br><ul><li>Quality Assurance</li><li>Process Automation</li><li>CI/CD tools (Jenkins/ DevOps)</li><li>Python</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Selenium</li><li>Agile Method</li><li>JDBC</li><li>Java</li><li>Rest API</li><li>Problem solving</li><li>Perseverance</li></ul>"
+    }
+  }
+  
